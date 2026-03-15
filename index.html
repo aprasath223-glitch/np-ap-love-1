@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NP ❤️ AP</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+text-align:center;
+background:linear-gradient(135deg,#ff5fa2,#ff9966);
+color:white;
+overflow:hidden;
+}
+
+h1{
+margin-top:60px;
+font-size:40px;
+}
+
+button{
+padding:12px 20px;
+margin:8px;
+border:none;
+border-radius:25px;
+background:white;
+color:#ff3c7f;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+#letters{
+display:none;
+margin-top:20px;
+max-height:300px;
+overflow:auto;
+}
+
+.heart{
+position:fixed;
+bottom:-10px;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+100%{transform:translateY(-800px);}
+}
+
+.popup{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+color:black;
+padding:30px;
+border-radius:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>NP ❤️ AP</h1>
+<h2>Our Special Date: July 7</h2>
+
+<h3 id="days"></h3>
+
+<button onclick="showLetters()">💌 Open 100 Love Letters</button>
+<button onclick="fireworks()">🎆 Love Fireworks</button>
+<button onclick="surprise()">🌸 Surprise</button>
+<button onclick="proposal()">💍 Special Question</button>
+
+<div id="letters"></div>
+
+<div id="popup" class="popup">
+<h2>NP ❤️</h2>
+<p>Will you stay with me forever?</p>
+<button onclick="closePop()">Yes 💖</button>
+</div>
+
+<audio id="song" src="paavi.mp3"></audio>
+<button onclick="playSong()">🎵 Play Song</button>
+
+<script>
+
+let lettersDiv=document.getElementById("letters")
+
+function showLetters(){
+lettersDiv.style.display="block"
+lettersDiv.innerHTML=""
+for(let i=1;i<=100;i++){
+let btn=document.createElement("button")
+btn.innerText="Letter "+i
+btn.onclick=function(){
+alert("Love Letter "+i+" 💌\n\nNP, every moment with you makes my life beautiful.\n– AP")
+}
+lettersDiv.appendChild(btn)
+}
+}
+
+function fireworks(){
+for(let i=0;i<40;i++){
+let heart=document.createElement("div")
+heart.className="heart"
+heart.innerHTML="❤️"
+heart.style.left=Math.random()*100+"%"
+heart.style.animationDuration=(Math.random()*3+3)+"s"
+document.body.appendChild(heart)
+}
+}
+
+function surprise(){
+alert("NP ❤️\nYou are the most beautiful part of my life.\n– AP")
+}
+
+function proposal(){
+document.getElementById("popup").style.display="block"
+}
+
+function closePop(){
+document.getElementById("popup").style.display="none"
+alert("AP is the happiest person now ❤️")
+}
+
+function playSong(){
+document.getElementById("song").play()
+}
+
+let start=new Date("July 7 2025")
+let today=new Date()
+let diff=Math.floor((today-start)/(1000*60*60*24))
+
+document.getElementById("days").innerText="Days since July 7: "+diff
+
+</script>
+
+</body>
+</html>
